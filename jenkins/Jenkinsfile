@@ -35,9 +35,9 @@ pipeline {
    }
    stage ('Download from GCS') {
        steps {
-         googleStorageDownload {credentialsId: env.CREDENTIALS_ID,
+         googleStorageDownload ([credentialsId: env.CREDENTIALS_ID,
                       bucketUri: 'gs://bucket-storage-maven/repo1/CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
-                               }
+                               ])
       }
    }
  }
