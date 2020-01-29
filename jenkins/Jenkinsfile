@@ -25,7 +25,8 @@ pipeline {
        }
    }
    stage ('Deliver') {
-       steps {
+       steps { 
+          git --version
           sh './jenkins/scripts/deliver.sh'
        }
    }
