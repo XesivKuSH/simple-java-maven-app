@@ -29,5 +29,10 @@ pipeline {
           sh './jenkins/scripts/deliver.sh'
        }
    }
+   stage ('Download from GCS') {
+       steps {
+                googleStorageDownload bucketUri: 'CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
+      }
+   }
  }
 }

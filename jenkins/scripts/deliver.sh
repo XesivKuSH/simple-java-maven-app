@@ -23,5 +23,6 @@ set +x
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-env
+#env
+ls -l /var/jenkins_home/workspace/
 java -jar target/${NAME}-${VERSION}.jar
