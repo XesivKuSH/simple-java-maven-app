@@ -36,7 +36,7 @@ pipeline {
    stage ('Download from GCS') {
        steps {
                step([$class: 'DownloadStep', credentialsId: env.CREDENTIALS_ID,
-                      bucketUri: 'CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
+                      bucketUri: 'gs://bucket-storage-maven/repo1/CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
                    ])
       }
    }
