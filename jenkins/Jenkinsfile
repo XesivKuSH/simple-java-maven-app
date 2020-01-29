@@ -1,9 +1,12 @@
 pipeline {
-  agent {
+  agent any {
     docker {
        image 'maven:3-alpine'
        args '-v /root/.m2:/root/.m2'
     }
+    environment {
+      CREDENTIALS_ID = 'editors-1018029054589'
+  }
   }
   options {
      skipStagesAfterUnstable()
@@ -31,7 +34,11 @@ pipeline {
    }
    stage ('Download from GCS') {
        steps {
-                googleStorageDownload bucketUri: 'CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
+             step{
+               step([$class: 'DownloadStep' credentialsId: env.CREDENTIALS_ID,
+                      bucketUri: 'CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
+                   ])
+             }
       }
    }
  }
