@@ -35,7 +35,7 @@ pipeline {
    stage ('Download from GCS') {
        steps {
              step{
-               step([$class: 'DownloadStep' credentialsId: env.CREDENTIALS_ID,
+               step([$class: 'DownloadStep', credentialsId: env.CREDENTIALS_ID,
                       bucketUri: 'CappSample*.car', localDirectory: '/var/jenkins_home/workspace/'
                    ])
              }
