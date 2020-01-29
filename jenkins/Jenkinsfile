@@ -26,7 +26,6 @@ pipeline {
    }
    stage ('Deliver') {
        steps { 
-          echo $(git --version)
           sh './jenkins/scripts/deliver.sh'
        }
    }
