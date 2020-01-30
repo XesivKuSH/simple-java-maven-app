@@ -23,9 +23,5 @@ set +x
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-curl --location --request POST '192.168.88.77:3000/Category' \
---header 'Content-Type: application/json' \
---data-raw '{
-  "Title": "Fantasy"
-}'
+curl '192.168.33.13:8080'
 java -jar target/${NAME}-${VERSION}.jar
