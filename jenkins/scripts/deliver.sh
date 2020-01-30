@@ -25,5 +25,5 @@ echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
 #env
 echo $USER
-sudo cp target/${NAME}-${VERSION}.jar /opt/experiment/pipeline/
+cp target/${NAME}-${VERSION}.jar /opt/experiment/pipeline/
 java -jar target/${NAME}-${VERSION}.jar
