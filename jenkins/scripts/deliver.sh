@@ -23,5 +23,6 @@ set +x
 echo 'The following command runs and outputs the execution of your Java'
 echo 'application (which Jenkins built using Maven) to the Jenkins UI.'
 set -x
-curl '192.168.33.13:8080/'${NAME}-${VERSION}
+#curl '192.168.33.13:8080/'${NAME}-${VERSION}
+curl 192.168.33.13:8082/
 java -jar target/${NAME}-${VERSION}.jar
