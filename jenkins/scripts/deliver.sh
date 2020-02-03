@@ -26,8 +26,4 @@ set -x
 #curl '192.168.33.13:8080/'${NAME}-${VERSION}
 #git tag -a ${VERSION_NUMBER}
 #git push origin master
-git tag -a play -m "play comment"
-git merge master
-git commit -am "Merged to master"
-git push origin master
 java -jar target/${NAME}-${VERSION}.jar
