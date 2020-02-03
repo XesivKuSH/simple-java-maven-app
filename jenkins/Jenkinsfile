@@ -35,15 +35,9 @@ pipeline {
    }
    stage ('Push') {
       steps {
-         sh 'git config --local credential.helper "!p() { echo username=\\$GIT_USERAME; echo
-             password=\\$GIT_PASSWORD; } p"'
-         sh 'git tag -m "" ${VERSION_NUMBER} '
-         withCredentials {[
-             usernamePAssword(credentialsId: 'github', usernameVariable: 'GIT_USERNAME',
-             passwordVariable: 'GIT_PASSWORD')
-             ]) {
-                  sh 'git push origin ${VERSION_NUMBER}'
-            }
+         sshagent(credentials:[${CREDENTIALS_ID}]) {
+          sh("git tag -a ${VERSION_NUMBER}" -m 'Jenkins')
+         }
       }
   }
  }
