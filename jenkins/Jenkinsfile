@@ -38,7 +38,6 @@ pipeline {
               sh 'git tag -a ${VERSION_NUMBER}'
               sh 'git push origin master'
          }
-       }
    }
  }
 }
