@@ -33,12 +33,5 @@ pipeline {
           sh './jenkins/scripts/deliver.sh'
        }
    }
-   stage ('Push') {
-      steps {
-        sh 'sudo git add. '
-        sh 'git commit -m "Push from Jenkins'
-        sh 'git push origin master'
-      }
-   }
  }
 }
