@@ -36,8 +36,8 @@ pipeline {
    stage ('Push') {
       steps {
          sshagent(['git-credentials-id']) {
-          sh("git tag -a ${VERSION_NUMBER}")
-          sh('git push origin master')
+          sh 'git tag -a ${VERSION_NUMBER}'
+          sh 'git push origin master'
          }
       }
   }
