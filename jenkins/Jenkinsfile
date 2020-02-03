@@ -33,14 +33,5 @@ pipeline {
           sh './jenkins/scripts/deliver.sh'
        }
    }
-   stage ('Push') {
-     steps {
-        sh 'git tag -a play -m "play comment"'
-        sh 'git merge master'
-        sh 'git commit -am "Merged to master"'
-        sh 'git push origin master'
-     }
-   }
-  
  }
 }
