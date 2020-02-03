@@ -34,10 +34,12 @@ pipeline {
        }
    }
    stage ('Push') {
-         sshagent(['my-ssh-key']) {
-          sh 'git tag -a ${VERSION_NUMBER}'
-          sh 'git push origin master'
+       steps {
+           sshagent(['my-ssh-key']) {
+              sh 'git tag -a ${VERSION_NUMBER}'
+              sh 'git push origin master'
          }
-  }
+       }
+   }
  }
 }
