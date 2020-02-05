@@ -6,26 +6,23 @@ pipeline {
     }
 
   }
-  
-  options {
-	skipStagesAfterUnstable()
-  }
   stages {
     stage('Build') {
       steps {
-        sh 'mvn -B -DskipTests clean package'
+        sh 'mvn clean package'
       }
     }
 
     stage('MVN Test') {
+      post {
+        always {
+          junit 'target/surefire-reports/*.xml'
+        }
+
+      }
       steps {
         sh 'mvn test'
       }
-	  post {
-		always {
-			junit 'target/surefire-reports/*.xml'
-		}
-	  }
     }
 
     stage('Deliver') {
@@ -34,5 +31,8 @@ pipeline {
       }
     }
 
+  }
+  options {
+    skipStagesAfterUnstable()
   }
 }
